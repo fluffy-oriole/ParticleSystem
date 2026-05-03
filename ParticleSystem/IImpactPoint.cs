@@ -9,7 +9,6 @@ namespace ParticleSystem
         public float X;
         public float Y;
 
-
         public abstract void ImpactParticle(Particle particle);
 
 

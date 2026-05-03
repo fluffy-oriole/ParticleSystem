@@ -26,8 +26,8 @@ namespace ParticleSystem
         public int LifeMax = 100;
         public int ParticlesPerTick = 1;
 
-        public Color ColorFrom = Color.White;
-        public Color ColorTo = Color.FromArgb(0, Color.Black);
+        public Color ColorFrom;
+        public Color ColorTo;
 
         public void UpdateState()
         {
@@ -80,6 +80,12 @@ namespace ParticleSystem
             particle.Life = Particle.rand.Next(LifeMin, LifeMax);
             particle.X = X;
             particle.Y = Y;
+            if (particle is ParticleColorful)
+            {
+                ParticleColorful colorParticle = (ParticleColorful)particle;
+                colorParticle.FromColor = ColorFrom;
+                colorParticle.ToColor = ColorTo;
+            }
 
             var direction = Direction
                 + (double)Particle.rand.Next(Spreading)
