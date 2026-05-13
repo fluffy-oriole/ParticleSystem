@@ -159,11 +159,11 @@ namespace ParticleSystem
         private void picDisplay_MouseWheel(object sender, MouseEventArgs e)
         {
             int Delta = e.Delta;
-            if (Delta > 0)
+            if (Delta > 0 && Radar.Wide < 100)
             {
                 Radar.Wide += 1;
             }
-            else
+            else if (Radar.Wide > 0)
             {
                 Radar.Wide -= 1;
             }

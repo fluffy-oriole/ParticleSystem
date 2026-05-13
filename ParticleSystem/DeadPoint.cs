@@ -13,9 +13,8 @@ namespace ParticleSystem
             float gX = X - particle.X;
             float gY = Y - particle.Y;
             double r = Math.Sqrt(gX * gX + gY * gY);
-            if (particle is ParticleColorful && r + particle.Radius < Wide / 2)
+            if (r + particle.Radius < Wide / 2)
             {
-                ParticleColorful colorfulParticle = (ParticleColorful)particle;
                 particle.Life = 0;
                 killedPointsCount += 1;
             }

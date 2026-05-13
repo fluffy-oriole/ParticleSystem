@@ -67,7 +67,7 @@
             // 
             // tbDirection
             // 
-            tbDirection.Location = new Point(12, 792);
+            tbDirection.Location = new Point(12, 775);
             tbDirection.Maximum = 359;
             tbDirection.Name = "tbDirection";
             tbDirection.Size = new Size(505, 69);
@@ -77,7 +77,7 @@
             // lbldirection
             // 
             lbldirection.AutoSize = true;
-            lbldirection.Location = new Point(523, 810);
+            lbldirection.Location = new Point(523, 792);
             lbldirection.Name = "lbldirection";
             lbldirection.Size = new Size(29, 25);
             lbldirection.TabIndex = 2;
@@ -85,7 +85,7 @@
             // 
             // tbGraviton1
             // 
-            tbGraviton1.Location = new Point(578, 792);
+            tbGraviton1.Location = new Point(578, 775);
             tbGraviton1.Maximum = 100;
             tbGraviton1.Name = "tbGraviton1";
             tbGraviton1.Size = new Size(287, 69);
@@ -95,7 +95,7 @@
             // 
             // tbGraviton2
             // 
-            tbGraviton2.Location = new Point(871, 792);
+            tbGraviton2.Location = new Point(871, 775);
             tbGraviton2.Maximum = 100;
             tbGraviton2.Name = "tbGraviton2";
             tbGraviton2.Size = new Size(297, 69);
@@ -151,7 +151,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1190, 856);
+            ClientSize = new Size(1182, 840);
             Controls.Add(tbPaint2Y);
             Controls.Add(tbPaint2X);
             Controls.Add(tbPaint1Y);

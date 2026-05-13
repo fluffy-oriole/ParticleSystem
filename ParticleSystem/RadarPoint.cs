@@ -52,10 +52,10 @@ namespace ParticleSystem
         {
             g.DrawEllipse(
                     new Pen(Color.Lime),
-                    X - 100 / 2,
-                    Y - 100 / 2,
-                    100,
-                    100
+                    X - Wide / 2,
+                    Y - Wide / 2,
+                    Wide,
+                    Wide
                 );
             var stringFormat = new StringFormat();
             stringFormat.Alignment = StringAlignment.Center;
