@@ -21,6 +21,8 @@ namespace ParticleSystem
         public float Life;
         public Color mainColor = Color.Black;
 
+        public bool IsParticleInRadar = false;
+
         public Particle()
         {
             var direction = (double)rand.Next(360);
@@ -52,6 +54,9 @@ public class ParticleColorful : Particle
     public Color FromColor;
     public Color ToColor;
 
+    public Color RadarFromColor = Color.Lime;
+    public Color RadarToColor = Color.White;
+
     public Color MixColor(Color color1, Color color2, float k)
     {
         return Color.FromArgb(
@@ -66,7 +71,16 @@ public class ParticleColorful : Particle
     {
         float k = Math.Min(1f, Life / 100);
 
-        var color = MixColor(ToColor, FromColor, k);
+        Color color;
+        if (!IsParticleInRadar)
+        {
+            color = MixColor(ToColor, FromColor, k);
+        }
+        else
+        {
+            color = MixColor(RadarToColor, RadarFromColor, k);
+        }
+        
         var b = new SolidBrush(color);
 
         g.FillEllipse(b, X - Radius, Y - Radius, Radius * 2, Radius * 2);

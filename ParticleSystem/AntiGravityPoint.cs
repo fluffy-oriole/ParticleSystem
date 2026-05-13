@@ -1,16 +1,19 @@
 ﻿using ParticleSystem;
 
-public class AntiGravityPoint : IImpactPoint
+namespace ParticleSystem
 {
-    public int Power = 100;
-
-    public override void ImpactParticle(Particle particle)
+    public class AntiGravityPoint : IImpactPoint
     {
-        float gX = X - particle.X;
-        float gY = Y - particle.Y;
-        float r2 = (float)Math.Max(100, gX * gX + gY * gY);
+        public int Power = 100;
 
-        particle.SpeedX -= gX * Power / r2;
-        particle.SpeedY -= gY * Power / r2;
+        public override void ImpactParticle(Particle particle)
+        {
+            float gX = X - particle.X;
+            float gY = Y - particle.Y;
+            float r2 = (float)Math.Max(100, gX * gX + gY * gY);
+
+            particle.SpeedX -= gX * Power / r2;
+            particle.SpeedY -= gY * Power / r2;
+        }
     }
 }

@@ -1,17 +1,20 @@
 ﻿using ParticleSystem;
 
-public class TopEmitter : Emitter
+namespace ParticleSystem
 {
-    public int Width;
-
-    public override void ResetParticle(Particle particle)
+    public class TopEmitter : Emitter
     {
-        base.ResetParticle(particle);
+        public int Width;
 
-        particle.X = Particle.rand.Next(Width);
-        particle.Y = 0;
+        public override void ResetParticle(Particle particle)
+        {
+            base.ResetParticle(particle);
 
-        particle.SpeedY = 1;
-        particle.SpeedX = Particle.rand.Next(-2, 2);
+            particle.X = Particle.rand.Next(Width);
+            particle.Y = 0;
+
+            particle.SpeedY = 1;
+            particle.SpeedX = Particle.rand.Next(-2, 2);
+        }
     }
 }

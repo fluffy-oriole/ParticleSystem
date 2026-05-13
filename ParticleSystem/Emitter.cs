@@ -31,7 +31,7 @@ namespace ParticleSystem
 
         public void UpdateState()
         {
-            int particlesToCreate = ParticlesPerTick;
+            int particlesToCreate = ParticlesCount;
             foreach (var particle in particles)
             {
                 particle.X += particle.SpeedX;

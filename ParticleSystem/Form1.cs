@@ -5,7 +5,6 @@ namespace ParticleSystem
 {
     public partial class Form1 : Form
     {
-        public static Random rand = new Random();
         Emitter emitter;
         GravityPoint point1;
         GravityPoint point2;
@@ -38,7 +37,7 @@ namespace ParticleSystem
                 X = picDisplay.Width / 2 + 100,
                 Y = picDisplay.Height / 2,
             };
-            
+
             point2 = new GravityPoint
             {
                 X = picDisplay.Width / 2 - 100,
@@ -66,13 +65,13 @@ namespace ParticleSystem
                 X = picDisplay.Width / 2,
                 Y = picDisplay.Height / 2 - 100
             };
-            
+
             Radar = new RadarPoint
             {
                 X = picDisplay.Width / 2,
                 Y = picDisplay.Height / 2 + 40
             };
-            
+
 
 
             emitter.impactPoints.Add(point1);
@@ -101,7 +100,7 @@ namespace ParticleSystem
             emitter.MousePositionX = e.X;
             emitter.MousePositionY = e.Y;
             Radar.X = e.X;
-            Radar.Y = e.Y;           
+            Radar.Y = e.Y;
         }
 
         private void trackBar1_Scroll(object sender, EventArgs e)
@@ -149,8 +148,8 @@ namespace ParticleSystem
         {
             DeadPoint NewDeadPoint = new DeadPoint
             {
-                X = rand.Next(50, 1100),
-                Y = rand.Next(50, 590)
+                X = emitter.MousePositionX,
+                Y = emitter.MousePositionY
             };
 
             emitter.impactPoints.Add(NewDeadPoint);
@@ -167,7 +166,12 @@ namespace ParticleSystem
             {
                 Radar.Wide -= 1;
             }
-            
+
+        }
+
+        private void tbNumberOfParticles_scroll(object sender, EventArgs e)
+        {
+            emitter.ParticlesCount = tbNumberOfParticles.Value;
         }
     }
 }

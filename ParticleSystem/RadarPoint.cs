@@ -13,11 +13,14 @@ namespace ParticleSystem
             float gX = X - particle.X;
             float gY = Y - particle.Y;
             double r = Math.Sqrt(gX * gX + gY * gY);
+            
             if (particle is ParticleColorful && r + particle.Radius < Wide / 2)
             {
                 if (!insideParticles.Contains(particle))
                 {
                     insideParticles.Add(particle);
+                    particle.IsParticleInRadar = true;
+                    /*
                     if (particle is ParticleColorful)
                     {
                         ParticleColorful particleWithColor = (ParticleColorful)particle;
@@ -28,6 +31,7 @@ namespace ParticleSystem
                     {
                         particle.mainColor = Color.Green;
                     }
+                    */
                 }                
             }
             else
@@ -35,6 +39,8 @@ namespace ParticleSystem
                 if (insideParticles.Contains(particle))
                 {
                     insideParticles.Remove(particle);
+                    particle.IsParticleInRadar = false;
+                    /*
                     if (particle is ParticleColorful)
                     {
                         ParticleColorful particleWithColor = (ParticleColorful)particle;
@@ -45,8 +51,10 @@ namespace ParticleSystem
                     {
                         particle.mainColor = Color.Red;
                     }
+                    */
                 }
             }
+
         }
         public override void Render(Graphics g)
         {
@@ -67,7 +75,7 @@ namespace ParticleSystem
             var size = g.MeasureString(text, font);
 
             g.FillRectangle(
-                new SolidBrush(Color.Red),
+                new SolidBrush(Color.Lime),
                 X - size.Width / 2,
                 Y - size.Height / 2,
                 size.Width,
